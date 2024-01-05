@@ -29,7 +29,7 @@ if uploaded_image is not None:
     # Load Model
     rf = Roboflow(api_key="Y95ShsJtRcyJAdaeUnOX")
     project = rf.workspace("school-ermrh").project("padi-detection")
-    model = project.version(7).model
+    model = project.version(8).model
 
     # Detect Objects
     with st.spinner('Inferring...'):
