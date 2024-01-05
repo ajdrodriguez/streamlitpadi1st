@@ -34,6 +34,7 @@ if uploaded_image is not None:
     # Detect Objects
     with st.spinner('Inferring...'):
         detections = model.predict(file_dir + uploaded_image.name, confidence=19, overlap=29).json()
+    
 
     image = Image.open(file_dir + uploaded_image.name)
 
@@ -68,6 +69,7 @@ if uploaded_image is not None:
         
         st.subheader('Detections')
         st.image(image)
+        st.success(detections)
 
     with st.container():
         st.code(
