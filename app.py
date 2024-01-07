@@ -78,7 +78,7 @@ if uploaded_image is not None:
         st.subheader('Detections')
         st.image(image)
         for i in detections['predictions']:
-          st.success(i)
+          st.success(i['confidence'])
 
     with st.container():
         st.code(
