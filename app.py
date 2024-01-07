@@ -9,7 +9,7 @@ SUPABASE_URL = "https://nwdaiodjblxyxhwgdruk.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53ZGFpb2RqYmx4eXhod2dkcnVrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwNDI3MzYxOSwiZXhwIjoyMDE5ODQ5NjE5fQ.hg4b6Or9m902Z4kSSpltcbd7at81dL7FM4HTHqCkyI8"
 
 # Initialize Supabase client
-# supabase_client = supabase.create_client(SUPABASE_URL, SUPABASE_KEY)
+supabase_client = supabase.create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Streamlit layout
 st.set_page_config(page_title='YOLOv5 | rice padi and rice weeviles', 
