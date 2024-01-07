@@ -2,6 +2,7 @@ import streamlit as st
 from roboflow import Roboflow
 from PIL import Image, ImageDraw, ImageFont
 from functions import *
+import supabase
 
 # Supabase credentials
 SUPABASE_URL = "https://nwdaiodjblxyxhwgdruk.supabase.co"
