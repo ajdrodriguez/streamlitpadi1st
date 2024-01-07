@@ -80,8 +80,11 @@ if uploaded_image is not None:
         st.image(image)
         for i in detections['predictions']:
           st.success(i['confidence'])
-        if detections['predictions'][0]['confidence'] > 0.10:
-          supabase_client.table('main').upsert([{'sound': '1.0'}]).execute()
+        if len(detections['predictions']) == 0:
+          st.success("No rice ear bugs or panicle found!")
+        else:
+          if detections['predictions'][0]['confidence'] > 0.10:
+            supabase_client.table('main').upsert([{'sound': '1.0'}]).execute()
 
     with st.container():
         st.code(
