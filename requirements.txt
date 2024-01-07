@@ -1,4 +1,4 @@
 ﻿Pillow==9.4.0
 roboflow==1.0.9
 streamlit==1.22.0
-supabase
+supabase==2.3.1
