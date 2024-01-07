@@ -2,8 +2,16 @@ import streamlit as st
 from roboflow import Roboflow
 from PIL import Image, ImageDraw, ImageFont
 from functions import *
+import supabase
 
-# Set up Streamlit layout
+# Supabase credentials
+SUPABASE_URL = "https://nwdaiodjblxyxhwgdruk.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53ZGFpb2RqYmx4eXhod2dkcnVrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwNDI3MzYxOSwiZXhwIjoyMDE5ODQ5NjE5fQ.hg4b6Or9m902Z4kSSpltcbd7at81dL7FM4HTHqCkyI8"
+
+# Initialize Supabase client
+supabase_client = supabase.create_client(SUPABASE_URL, SUPABASE_KEY)
+
+# Streamlit layout
 st.set_page_config(page_title='YOLOv5 | rice padi and rice weeviles', 
                    page_icon=':padi:', 
                    layout="centered", 
@@ -34,6 +42,7 @@ if uploaded_image is not None:
     # Detect Objects
     with st.spinner('Inferring...'):
         detections = model.predict(file_dir + uploaded_image.name, confidence=10, overlap=29).json()
+      
     
 
     image = Image.open(file_dir + uploaded_image.name)
@@ -69,7 +78,7 @@ if uploaded_image is not None:
         
         st.subheader('Detections')
         st.image(image)
-        st.success(detections)
+        st.success(detections['predictions'][0]['confidence'])
 
     with st.container():
         st.code(
